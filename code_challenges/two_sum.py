@@ -1,19 +1,13 @@
-numbers = [1, 2, 4]
-targ = 5
-temp = 100
-
 
 def two_sum(nums, target):
-    if nums == []:
-        return "Empty list"
-    for num in nums:
-        current_index = nums.index(num)  # records current integer number
-        for i in range(current_index + 1, len(nums)):
-            if nums.index(i) == current_index:
+    if not nums:
+        return "empty list"
+
+    for i1, n1 in enumerate(nums):
+        for i2 in range(len(nums) - 1):
+            if i1 == i2:
                 continue
-            elif current_index + i == target:
-                return [current_index, i]
-    return "Empty list"
+            if n1 + nums[i2] == target:
+                return [i1, i2]
+            # print([i1, i2])
 
-
-two_sum(numbers, targ)
